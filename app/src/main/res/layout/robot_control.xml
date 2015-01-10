@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2013 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp">
+    <LinearLayout android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_device_address"
+            android:textSize="18sp"/>
+        <Space android:layout_width="5dp"
+            android:layout_height="wrap_content"/>
+        <TextView android:id="@+id/device_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"/>
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_state"
+            android:textSize="18sp"/>
+        <Space android:layout_width="5dp"
+            android:layout_height="wrap_content"/>
+        <TextView android:id="@+id/connection_state"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/disconnected"
+            android:textSize="18sp"/>
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+    </LinearLayout>
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+    <LinearLayout android:layout_gravity="center" android:orientation="vertical" android:background="@drawable/sounds_table" android:layout_width="@dimen/sounds_panel_width" android:layout_height="@dimen/sounds_panel_height"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+        <LinearLayout android:orientation="horizontal" android:background="@drawable/sounds_top_row" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dip" android:layout_marginTop="10.0dip" android:layout_marginRight="20.0dip" android:layout_marginBottom="10.0dip" android:layout_weight="1.0">
+            <ImageView android:layout_gravity="center_vertical" android:id="@+id/siren_image" android:src="@drawable/rc_sound_button_siren" android:layout_width="@dimen/sounds_image_firstrow_width" android:layout_height="@dimen/sounds_image_firstrow_height" android:layout_marginLeft="10.0dip" android:scaleType="fitXY" android:layout_weight="1.0" />
+            <ImageView android:layout_gravity="center_vertical" android:id="@+id/tire_image" android:src="@drawable/rc_sound_button_tire_squeal" android:layout_width="@dimen/sounds_image_firstrow_width" android:layout_height="@dimen/sounds_image_firstrow_height" android:layout_marginLeft="10.0dip" android:layout_marginRight="10.0dip" android:scaleType="fitXY" android:layout_weight="1.0" />
+            <ImageView android:layout_gravity="center_vertical" android:id="@+id/horn_image" android:src="@drawable/rc_sound_button_horn" android:layout_width="@dimen/sounds_image_firstrow_width" android:layout_height="@dimen/sounds_image_firstrow_height" android:layout_marginRight="10.0dip" android:scaleType="fitXY" android:layout_weight="1.0" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:background="@drawable/sounds_middle_row" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dip" android:layout_marginRight="20.0dip" android:layout_marginBottom="10.0dip" android:layout_weight="1.0">
+            <ImageView android:layout_gravity="center_vertical" android:id="@+id/cow_image" android:src="@drawable/rc_sound_button_cow" android:layout_width="@dimen/sounds_image_width" android:layout_height="@dimen/sounds_image_height" android:layout_marginLeft="10.0dip" android:scaleType="centerCrop" android:layout_weight="1.0" />
+            <ImageView android:layout_gravity="center_vertical" android:id="@+id/elephant_image" android:src="@drawable/rc_sound_button_elephant" android:layout_width="@dimen/sounds_image_width" android:layout_height="@dimen/sounds_image_height" android:layout_marginLeft="10.0dip" android:layout_marginRight="10.0dip" android:scaleType="centerCrop" android:layout_weight="1.0" />
+            <ImageView android:layout_gravity="center_vertical" android:id="@+id/dog_image" android:src="@drawable/rc_sound_button_dog" android:layout_width="@dimen/sounds_image_width" android:layout_height="@dimen/sounds_image_height" android:layout_marginRight="10.0dip" android:scaleType="centerCrop" android:layout_weight="1.0" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:background="@drawable/sounds_middle_row" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dip" android:layout_marginRight="20.0dip" android:layout_marginBottom="10.0dip" android:layout_weight="1.0">
+            <ImageView android:layout_gravity="center_vertical" android:id="@+id/excited_image" android:src="@drawable/rc_sound_button_celebration" android:layout_width="@dimen/sounds_image_thirdrow_width" android:layout_height="@dimen/sounds_image_thirdrow_height" android:layout_marginLeft="10.0dip" android:scaleType="centerCrop" android:layout_weight="1.0" />
+            <ImageView android:layout_gravity="center_vertical" android:id="@+id/tah_dah_image" android:src="@drawable/rc_sound_button_spinout" android:layout_width="@dimen/sounds_image_thirdrow_width" android:layout_height="@dimen/sounds_image_thirdrow_height" android:layout_marginLeft="10.0dip" android:layout_marginRight="10.0dip" android:scaleType="centerCrop" android:layout_weight="1.0" />
+            <ImageView android:layout_gravity="center_vertical" android:id="@+id/whuh_oh_image" android:src="@drawable/rc_sound_button_tornado" android:layout_width="@dimen/sounds_image_thirdrow_width" android:layout_height="@dimen/sounds_image_thirdrow_height" android:layout_marginRight="10.0dip" android:scaleType="centerCrop" android:layout_weight="1.0" />
+        </LinearLayout>
+        <Button android:layout_height="wrap_content"
+        android:layout_width="wrap_content" android:id="@+id/moveHeadButton" android:text="MoveHead" android:layout_gravity="center_horizontal">
+       </Button>
+        <Button android:layout_height="wrap_content"
+            android:layout_width="wrap_content" android:id="@+id/lightShowButton" android:text="LightShow" android:layout_gravity="center_horizontal">
+        </Button>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"  android:orientation="horizontal">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/chrome_customize_personality_color_yellow"
+                android:paddingRight="@dimen/margin_medium"
+                android:id="@+id/colorYellow"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/chrome_customize_personality_color_green"
+                android:paddingRight="@dimen/margin_medium"
+                android:id="@+id/colorGreen"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/chrome_customize_personality_color_orange"
+                android:paddingRight="@dimen/margin_medium"
+                android:id="@+id/colorOrange"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/chrome_customize_personality_color_blue"
+                android:paddingRight="@dimen/margin_medium"
+                android:id="@+id/colorBlue"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/chrome_customize_personality_color_red"
+                android:paddingRight="@dimen/margin_medium"
+                android:id="@+id/colorRed"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/chrome_customize_personality_color_purple"
+                android:paddingRight="@dimen/margin_small"
+                android:id="@+id/colorPurple"/>
+
+
+        </LinearLayout>
+    </LinearLayout>
+    </ScrollView>
+</LinearLayout>
