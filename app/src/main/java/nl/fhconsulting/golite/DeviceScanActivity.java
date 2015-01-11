@@ -82,7 +82,7 @@ public class DeviceScanActivity extends ListActivity {
 
         // Checks if Bluetooth is supported on the device.
         if (mBluetoothAdapter == null) {
-            Toast.makeText(this, R.string.error_bluetooth_not_supported, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.error_bluetooth_not_supported, Toast.LENGTH_LONG).show();
             finish();
             return;
         }
@@ -260,7 +260,6 @@ public class DeviceScanActivity extends ListActivity {
                 viewHolder.deviceName.setText(R.string.unknown_device);
             }
 
-            //viewHolder.deviceAddress.setText(device.getAddress() +" F: " + RobotControl.getRobotFirmwareVersion(0x4));
             viewHolder.deviceAddress.setText(device.getAddress());
             return view;
         }

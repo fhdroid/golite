@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015 fhconsulting
+ * Copyright (C) 2015 FH Consulting
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,7 +17,6 @@ package nl.fhconsulting.golite;
 
 import android.app.Activity;
 import android.bluetooth.BluetoothGattCharacteristic;
-import android.bluetooth.BluetoothGattService;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
@@ -32,15 +31,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ExpandableListView;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.SimpleExpandableListAdapter;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+
 import java.util.Random;
 import java.util.UUID;
 
@@ -64,10 +58,7 @@ public class RobotControlActivity extends Activity {
     private BluetoothLeService mBluetoothLeService;
 
     private boolean mConnected = false;
-    private BluetoothGattCharacteristic mNotifyCharacteristic;
 
-    private final String LIST_NAME = "NAME";
-    private final String LIST_UUID = "UUID";
 
     byte[] soundByeBye     = new byte[] {24, 83, 89, 83, 84, 66, 79, 95, 86, 55, 95, 86, 65, 82, 73, 14, 80};
     byte[] soundHorn       = new byte[] {24, 83, 89, 83, 84, 72, 65, 80, 80, 89, 95, 72, 79, 78, 75, 14, 70};
