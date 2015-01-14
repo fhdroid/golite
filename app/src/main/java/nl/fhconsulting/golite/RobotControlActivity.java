@@ -32,6 +32,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 
@@ -60,18 +61,20 @@ public class RobotControlActivity extends Activity {
     private boolean mConnected = false;
 
 
-    byte[] soundByeBye     = new byte[] {24, 83, 89, 83, 84, 66, 79, 95, 86, 55, 95, 86, 65, 82, 73, 14, 80};
-    byte[] soundHorn       = new byte[] {24, 83, 89, 83, 84, 72, 65, 80, 80, 89, 95, 72, 79, 78, 75, 14, 70};
-    byte[] soundSiren      = new byte[] {24, 83, 89, 83, 84, 88, 95, 83, 73, 82, 69, 78, 95, 48, 50, 14, 70};
+    byte[] soundByeBye     = new byte[] {24, 83, 89, 83, 84, 66, 79, 95, 86, 55, 95, 86, 65, 82, 73, 14, 80}; //BO_V7_VARI
+    byte[] soundHorn       = new byte[] {24, 83, 89, 83, 84, 72, 65, 80, 80, 89, 95, 72, 79, 78, 75, 14, 70}; //HAPPY_HONK
+    byte[] soundSiren      = new byte[] {24, 83, 89, 83, 84, 88, 95, 83, 73, 82, 69, 78, 95, 48, 50, 14, 70}; //X_SIREN_02
 
 
-    byte[] soundTireSqueel = new byte[] {24, 83, 89, 83, 84, 84, 73, 82, 69, 83, 81, 85, 69, 65, 76, 14, 70};
-    byte[] soundCow        = new byte[] {24, 83, 89, 83, 84, 67, 79, 87, 95, 77, 79, 79, 49, 49, 65, 14, 70};
-    byte[] soundDog        = new byte[] {24, 83, 89, 83, 84, 70, 88, 95, 68, 79, 71, 95, 48, 50,  0, 14, 70};
-    byte[] soundElefant    = new byte[] {24, 83, 89, 83, 84, 69, 76, 69, 80, 72, 65, 78, 84, 95, 48, 14, 70};
-    byte[] soundOhYeah     = new byte[] {24, 83, 89, 83, 84, 66, 82, 65, 71, 71, 73, 78, 71, 49, 65, 14, 70};
-    byte[] soundOhNo       = new byte[] {24, 83, 89, 83, 84, 86, 55, 95, 79, 72, 78, 79, 95, 48, 57, 14, 70};
-    byte[] soundWow        = new byte[] {24, 83, 89, 83, 84, 67, 79, 78, 70, 85, 83, 69, 68, 95, 56, 14, 70};
+    byte[] soundTireSqueel = new byte[] {24, 83, 89, 83, 84, 84, 73, 82, 69, 83, 81, 85, 69, 65, 76, 14, 70}; //T, I, R, E, S, Q, U, E, A, L
+    byte[] soundCow        = new byte[] {24, 83, 89, 83, 84, 67, 79, 87, 95, 77, 79, 79, 49, 49, 65, 14, 70}; //C, O, W, _, M, O, O, 1, 1, A
+    byte[] soundDog        = new byte[] {24, 83, 89, 83, 84, 70, 88, 95, 68, 79, 71, 95, 48, 50,  0, 14, 70}; //F, X, _, D, O, G, _, 0, 2,
+    byte[] soundElefant    = new byte[] {24, 83, 89, 83, 84, 69, 76, 69, 80, 72, 65, 78, 84, 95, 48, 14, 70}; //E, L, E, P, H, A, N, T, _, 0
+    byte[] soundOhYeah     = new byte[] {24, 83, 89, 83, 84, 66, 82, 65, 71, 71, 73, 78, 71, 49, 65, 14, 70}; //B, R, A, G, G, I, N, G, 1, A
+    byte[] soundOhNo       = new byte[] {24, 83, 89, 83, 84, 86, 55, 95, 79, 72, 78, 79, 95, 48, 57, 14, 70}; //V, 7, _, O, H, N, O, _, 0, 9
+    byte[] soundWow        = new byte[] {24, 83, 89, 83, 84, 67, 79, 78, 70, 85, 83, 69, 68, 95, 56, 14, 70}; //C, O, N, F, U, S, E, D, _, 8
+
+    byte[] soundHi         = new byte[] {24, 83, 89, 83, 84, 68, 65, 83, 72, 95, 72, 73, 95, 86, 79, 14, 80}; //D, A, S, H, _, H, I, _, V, O
 
     byte[] colorYellow     = new byte[] {28, 3, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     byte[] colorGreen      = new byte[] {28, 3, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
@@ -117,9 +120,12 @@ public class RobotControlActivity extends Activity {
                 mConnected = true;
                 updateConnectionState(R.string.connected);
                 invalidateOptionsMenu();
+                showUI(true);
             } else if (BluetoothLeService.ACTION_GATT_DISCONNECTED.equals(action)) {
                 mConnected = false;
                 updateConnectionState(R.string.disconnected);
+                invalidateOptionsMenu();
+                showUI(false);
             } else if (BluetoothLeService.ACTION_GATT_SERVICES_DISCOVERED.equals(action)) {
                 // Show all the supported services and characteristics on the user interface.
                 //displayGattServices(mBluetoothLeService.getSupportedGattServices());
@@ -212,16 +218,6 @@ public class RobotControlActivity extends Activity {
             }
         });
 
-        Button moveHead = (Button) findViewById(R.id.moveHeadButton);
-        if (mDeviceName.equalsIgnoreCase("Dash")) {
-            moveHead.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-                    moveHead();
-                }
-            });
-        } else {
-            moveHead.setVisibility(View.INVISIBLE);
-        }
 
         Button lightShow = (Button) findViewById(R.id.lightShowButton);
         lightShow.setOnClickListener(new View.OnClickListener() {
@@ -267,13 +263,25 @@ public class RobotControlActivity extends Activity {
             }
         });
 
+        Button moveHead = (Button) findViewById(R.id.moveHeadButton);
+        if (mDeviceName.equalsIgnoreCase("Dash")) {
+            moveHead.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    moveHead();
+                }
+            });
+        } else {
+            moveHead.setVisibility(View.INVISIBLE);
+        }
 
+        sayHi();
 
 
         getActionBar().setTitle(mDeviceName);
         getActionBar().setDisplayHomeAsUpEnabled(true);
         Intent gattServiceIntent = new Intent(this, BluetoothLeService.class);
         bindService(gattServiceIntent, mServiceConnection, BIND_AUTO_CREATE);
+
     }
 
     @Override
@@ -282,7 +290,7 @@ public class RobotControlActivity extends Activity {
         registerReceiver(mGattUpdateReceiver, makeGattUpdateIntentFilter());
         if (mBluetoothLeService != null) {
             final boolean result = mBluetoothLeService.connect(mDeviceAddress);
-            Log.d(TAG, "Connect request result=" + result);
+            Log.d(TAG, "Connect request result = " + result);
         }
     }
 
@@ -320,7 +328,7 @@ public class RobotControlActivity extends Activity {
                 return true;
             case R.id.menu_disconnect:
                 sayByeBye();
-                mBluetoothLeService.disconnect();
+                //mBluetoothLeService.disconnect();
                 return true;
             case android.R.id.home:
                 onBackPressed();
@@ -374,12 +382,22 @@ public class RobotControlActivity extends Activity {
     public void sayByeBye() {
         playSound(soundByeBye);
         new Handler().postDelayed(new Runnable() {
-
             @Override
             public void run() {
                 Log.i(TAG, "Time to say goodbye...");
+                mBluetoothLeService.disconnect();
             }
-        }, 10000);
+        }, 1000);
+    }
+
+    public void sayHi() {
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Log.i(TAG, "Time to say hello...");
+                playSound(soundHi);
+            }
+        }, 1000);
     }
 
     private void moveHead() {
@@ -424,7 +442,7 @@ public class RobotControlActivity extends Activity {
     }
 
     private void playLightShow() {
-        for (int i=0; i < 20; i++) {
+        for (int i=0; i < 30; i++) {
             Random r = new Random();
             int rand = r.nextInt(6) + 1;
             switch (rand) {
@@ -449,10 +467,20 @@ public class RobotControlActivity extends Activity {
                 default:
                     break;
             };
-            for (int j=0; j < 10000; j++) {
-                Log.d(TAG, "waiting in lightshow...");
+            for (int j=0; j < 15000; j++) {
+              Log.d(TAG, "waiting in lightshow...");
             }
         }
     }
+
+    private void showUI(boolean bool) {
+        ScrollView scrollView = (ScrollView)findViewById(R.id.scrollview);
+        if (bool) {
+            scrollView.setVisibility(View.VISIBLE);
+        } else {
+            scrollView.setVisibility(View.INVISIBLE);
+        }
+    }
+
 }
 

@@ -57,7 +57,7 @@
     </LinearLayout>
     <ScrollView
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content" android:id="@+id/scrollview">
     <LinearLayout android:layout_gravity="center" android:orientation="vertical" android:background="@drawable/sounds_table" android:layout_width="@dimen/sounds_panel_width" android:layout_height="@dimen/sounds_panel_height"
         xmlns:android="http://schemas.android.com/apk/res/android">
         <LinearLayout android:orientation="horizontal" android:background="@drawable/sounds_top_row" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dip" android:layout_marginTop="10.0dip" android:layout_marginRight="20.0dip" android:layout_marginBottom="10.0dip" android:layout_weight="1.0">

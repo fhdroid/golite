@@ -17,6 +17,8 @@ android {
         }
     }
     productFlavors {
+        GoLite {
+        }
     }
 }
 
