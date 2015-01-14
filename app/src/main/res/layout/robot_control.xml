@@ -77,10 +77,18 @@
         </LinearLayout>
         <Button android:layout_height="wrap_content"
         android:layout_width="wrap_content" android:id="@+id/moveHeadButton" android:text="MoveHead" android:layout_gravity="center_horizontal">
-       </Button>
+        </Button>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal">
         <Button android:layout_height="wrap_content"
             android:layout_width="wrap_content" android:id="@+id/lightShowButton" android:text="LightShow" android:layout_gravity="center_horizontal">
         </Button>
+        <Button android:layout_height="wrap_content"
+            android:layout_width="wrap_content" android:id="@+id/rollEyeButton" android:text="RollEye" android:layout_gravity="center_horizontal">
+        </Button>
+        </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"  android:orientation="horizontal">

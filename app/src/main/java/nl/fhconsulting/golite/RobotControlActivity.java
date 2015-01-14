@@ -226,6 +226,13 @@ public class RobotControlActivity extends Activity {
             }
         });
 
+        Button rollEye = (Button) findViewById(R.id.rollEyeButton);
+        rollEye.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                rollEye(10000);
+            }
+        });
+
         ImageView changeYellow = (ImageView)findViewById(R.id.colorYellow);
         changeYellow.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -267,7 +274,7 @@ public class RobotControlActivity extends Activity {
         if (mDeviceName.equalsIgnoreCase("Dash")) {
             moveHead.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    moveHead();
+                    moveHead(5000);
                 }
             });
         } else {
@@ -367,10 +374,10 @@ public class RobotControlActivity extends Activity {
         BluetoothLeService.writeCharacteristic(mBluetoothLeService.UUID_WW_SERVICE, chara,  paramString);
     }
 
-    public void sendMove(byte[] paramString) {
+    public void sendCommand(byte[] paramString, int delay) {
         BluetoothLeService.writeCharacteristic(mBluetoothLeService.UUID_WW_SERVICE, chara,  paramString);
-        for (int i=0; i < 5000; i++) {
-            Log.d(TAG, "Waiting after move...");
+        for (int i=0; i < delay; i++) {
+            Log.d(TAG, "Waiting after command...");
         }
     }
 
@@ -400,41 +407,41 @@ public class RobotControlActivity extends Activity {
         }, 1000);
     }
 
-    private void moveHead() {
+    private void moveHead(int delay) {
 
-        sendMove(new byte[] {6, -1, -38, 7, -1, -8});
-        sendMove(new byte[] {6, -2, -85, 7, -1, -59});
-        sendMove(new byte[] {6, -4, 115, 7, -1, -109});
-        sendMove(new byte[] {6, -7, -16, 7, -1, 113});
-        sendMove(new byte[] {6, -11, -14, 7, -1, 80});
-        sendMove(new byte[] {6, -15, 55, 7, -1, 54});
-        sendMove(new byte[] {6, -19, 19, 7, -1, 29});
-        sendMove(new byte[] {6, -26, -73, 7, -1, 12});
-        sendMove(new byte[] {6, -31, 24, 7, -1, 21});
-        sendMove(new byte[] {6, -36, -87, 7, -1, 21});
-        sendMove(new byte[] {6, -39, -39, 7, -1, 21});
-        sendMove(new byte[] {6, -40, -48, 7, -1, 12});
-        sendMove(new byte[] {6, -41, -19, 7, -1, 4});
-        sendMove(new byte[] {6, -41, 124, 7, -2, -5});
-        sendMove(new byte[] {6, -41, -94, 7, -2, -13});
-        sendMove(new byte[] {6, -39, -114, 7, -2, -13});
-        sendMove(new byte[] {6, -35, -40, 7, -1, 21});
-        sendMove(new byte[] {6, -29, 118, 7, -1, 46});
-        sendMove(new byte[] {6, -22, -113, 7, -1, 63});
-        sendMove(new byte[] {6, -16, 46, 7, -1, 63});
-        sendMove(new byte[] {6, -11, -52, 7, -1, 71});
-        sendMove(new byte[] {6, -6, -121, 7, -1, 105});
-        sendMove(new byte[] {6, -1, 67, 7, -1, -109});
-        sendMove(new byte[] {6, 3, -101, 7, -1, -67});
-        sendMove(new byte[] {6, 9, -32, 7, -1, -17});
-        sendMove(new byte[] {6, 14, -108, 7, -1, -8});
-        sendMove(new byte[] {6, 19, -63, 7, -1, -17});
-        sendMove(new byte[] {6, 21, 122, 7, -1, -34});
-        sendMove(new byte[] {6, 22, 27, 7, -1, -42});
-        sendMove(new byte[] {6, 22, 27, 7, -1, -50});
-        sendMove(new byte[] {6, 22, 27, 7, -1, -59});
-        sendMove(new byte[] {6, 22, 27, 7, -1, -67});
-        sendMove(new byte[] {6, 0, 0, 7, 0, 0});
+        sendCommand(new byte[] {6, -1, -38, 7, -1, -8}, delay);
+        sendCommand(new byte[] {6, -2, -85, 7, -1, -59}, delay);
+        sendCommand(new byte[] {6, -4, 115, 7, -1, -109}, delay);
+        sendCommand(new byte[] {6, -7, -16, 7, -1, 113}, delay);
+        sendCommand(new byte[] {6, -11, -14, 7, -1, 80}, delay);
+        sendCommand(new byte[] {6, -15, 55, 7, -1, 54}, delay);
+        sendCommand(new byte[] {6, -19, 19, 7, -1, 29}, delay);
+        sendCommand(new byte[] {6, -26, -73, 7, -1, 12}, delay);
+        sendCommand(new byte[] {6, -31, 24, 7, -1, 21}, delay);
+        sendCommand(new byte[] {6, -36, -87, 7, -1, 21}, delay);
+        sendCommand(new byte[] {6, -39, -39, 7, -1, 21}, delay);
+        sendCommand(new byte[] {6, -40, -48, 7, -1, 12}, delay);
+        sendCommand(new byte[] {6, -41, -19, 7, -1, 4}, delay);
+        sendCommand(new byte[] {6, -41, 124, 7, -2, -5}, delay);
+        sendCommand(new byte[] {6, -41, -94, 7, -2, -13}, delay);
+        sendCommand(new byte[] {6, -39, -114, 7, -2, -13}, delay);
+        sendCommand(new byte[] {6, -35, -40, 7, -1, 21}, delay);
+        sendCommand(new byte[] {6, -29, 118, 7, -1, 46}, delay);
+        sendCommand(new byte[] {6, -22, -113, 7, -1, 63}, delay);
+        sendCommand(new byte[] {6, -16, 46, 7, -1, 63}, delay);
+        sendCommand(new byte[] {6, -11, -52, 7, -1, 71}, delay);
+        sendCommand(new byte[] {6, -6, -121, 7, -1, 105}, delay);
+        sendCommand(new byte[] {6, -1, 67, 7, -1, -109}, delay);
+        sendCommand(new byte[] {6, 3, -101, 7, -1, -67}, delay);
+        sendCommand(new byte[] {6, 9, -32, 7, -1, -17}, delay);
+        sendCommand(new byte[] {6, 14, -108, 7, -1, -8}, delay);
+        sendCommand(new byte[] {6, 19, -63, 7, -1, -17}, delay);
+        sendCommand(new byte[] {6, 21, 122, 7, -1, -34}, delay);
+        sendCommand(new byte[] {6, 22, 27, 7, -1, -42}, delay);
+        sendCommand(new byte[] {6, 22, 27, 7, -1, -50}, delay);
+        sendCommand(new byte[] {6, 22, 27, 7, -1, -59}, delay);
+        sendCommand(new byte[] {6, 22, 27, 7, -1, -67}, delay);
+        sendCommand(new byte[] {6, 0, 0, 7, 0, 0}, delay);
     }
 
     private void changeColor(byte[] color) {
@@ -480,6 +487,33 @@ public class RobotControlActivity extends Activity {
         } else {
             scrollView.setVisibility(View.INVISIBLE);
         }
+    }
+
+    private void rollEye(int delay) {
+        sendCommand(new byte[] {8, 88, 9, 15,   -2}, delay);
+        sendCommand(new byte[] {8, 88, 9, 15,   -4}, delay);
+        sendCommand(new byte[] {8, 88, 9, 15,   -8}, delay);
+        sendCommand(new byte[] {8, 88, 9, 15,  -16}, delay);
+        sendCommand(new byte[] {8, 88, 9, 15,  -32}, delay);
+        sendCommand(new byte[] {8, 88, 9, 15,  -64}, delay);
+        sendCommand(new byte[] {8, 88, 9, 15, -128}, delay);
+        sendCommand(new byte[] {8, 88, 9, 15,    0}, delay);
+        sendCommand(new byte[] {8, 88, 9, 14,    0}, delay);
+        sendCommand(new byte[] {8, 88, 9, 12,    0}, delay);
+        sendCommand(new byte[] {8, 88, 9,  8,    0}, delay);
+        sendCommand(new byte[] {8, 88, 9,  0,    0}, delay);
+        sendCommand(new byte[] {8, 88, 9,  0,    1}, delay);
+        sendCommand(new byte[] {8, 88, 9,  0,    3}, delay);
+        sendCommand(new byte[] {8, 88, 9,  0,    7}, delay);
+        sendCommand(new byte[] {8, 88, 9,  0,   15}, delay);
+        sendCommand(new byte[] {8, 88, 9,  0,   31}, delay);
+        sendCommand(new byte[] {8, 88, 9,  0,   63}, delay);
+        sendCommand(new byte[] {8, 88, 9,  0,  127}, delay);
+        sendCommand(new byte[] {8, 88, 9,  0,   -1}, delay);
+        sendCommand(new byte[] {8, 88, 9,  1,   -1}, delay);
+        sendCommand(new byte[] {8, 88, 9,  3,   -1}, delay);
+        sendCommand(new byte[] {8, 88, 9,  7,   -1}, delay);
+        sendCommand(new byte[] {8, 88, 9, 15,   -1}, delay);
     }
 
 }
