@@ -12,6 +12,7 @@
         </activity>
 
         <activity android:name=".RobotControlActivity"/>
+        <activity android:name=".CalculatorActivity"/>
         <service android:name=".BluetoothLeService" android:enabled="true"/>
     </application>
 
