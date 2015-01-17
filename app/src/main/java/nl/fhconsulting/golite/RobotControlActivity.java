@@ -15,6 +15,7 @@
  */
 package nl.fhconsulting.golite;
 
+
 import android.app.Activity;
 
 import android.content.BroadcastReceiver;
@@ -194,7 +195,7 @@ public class RobotControlActivity extends Activity {
         });
 
 
-        Button lightShow = (Button) findViewById(R.id.lightShowButton);
+        final Button lightShow = (Button) findViewById(R.id.lightShowButton);
         lightShow.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 playLightShow();
@@ -356,39 +357,39 @@ public class RobotControlActivity extends Activity {
 
     private void moveHead(int delay) {
 
-        CommandStrings.sendCommand(new byte[] {6, -1, -38, 7, -1, -8}, delay);
-        CommandStrings.sendCommand(new byte[] {6, -2, -85, 7, -1, -59}, delay);
-        CommandStrings.sendCommand(new byte[] {6, -4, 115, 7, -1, -109}, delay);
-        CommandStrings.sendCommand(new byte[] {6, -7, -16, 7, -1, 113}, delay);
-        CommandStrings.sendCommand(new byte[] {6, -11, -14, 7, -1, 80}, delay);
-        CommandStrings.sendCommand(new byte[] {6, -15, 55, 7, -1, 54}, delay);
-        CommandStrings.sendCommand(new byte[] {6, -19, 19, 7, -1, 29}, delay);
-        CommandStrings.sendCommand(new byte[] {6, -26, -73, 7, -1, 12}, delay);
-        CommandStrings.sendCommand(new byte[] {6, -31, 24, 7, -1, 21}, delay);
-        CommandStrings.sendCommand(new byte[] {6, -36, -87, 7, -1, 21}, delay);
-        CommandStrings.sendCommand(new byte[] {6, -39, -39, 7, -1, 21}, delay);
-        CommandStrings.sendCommand(new byte[] {6, -40, -48, 7, -1, 12}, delay);
-        CommandStrings.sendCommand(new byte[] {6, -41, -19, 7, -1, 4}, delay);
-        CommandStrings.sendCommand(new byte[] {6, -41, 124, 7, -2, -5}, delay);
-        CommandStrings.sendCommand(new byte[] {6, -41, -94, 7, -2, -13}, delay);
-        CommandStrings.sendCommand(new byte[] {6, -39, -114, 7, -2, -13}, delay);
-        CommandStrings.sendCommand(new byte[] {6, -35, -40, 7, -1, 21}, delay);
-        CommandStrings.sendCommand(new byte[] {6, -29, 118, 7, -1, 46}, delay);
-        CommandStrings.sendCommand(new byte[] {6, -22, -113, 7, -1, 63}, delay);
-        CommandStrings.sendCommand(new byte[] {6, -16, 46, 7, -1, 63}, delay);
-        CommandStrings.sendCommand(new byte[] {6, -11, -52, 7, -1, 71}, delay);
-        CommandStrings.sendCommand(new byte[] {6, -6, -121, 7, -1, 105}, delay);
-        CommandStrings.sendCommand(new byte[] {6, -1, 67, 7, -1, -109}, delay);
-        CommandStrings.sendCommand(new byte[] {6, 3, -101, 7, -1, -67}, delay);
-        CommandStrings.sendCommand(new byte[] {6, 9, -32, 7, -1, -17}, delay);
-        CommandStrings.sendCommand(new byte[] {6, 14, -108, 7, -1, -8}, delay);
-        CommandStrings.sendCommand(new byte[] {6, 19, -63, 7, -1, -17}, delay);
-        CommandStrings.sendCommand(new byte[] {6, 21, 122, 7, -1, -34}, delay);
-        CommandStrings.sendCommand(new byte[] {6, 22, 27, 7, -1, -42}, delay);
-        CommandStrings.sendCommand(new byte[] {6, 22, 27, 7, -1, -50}, delay);
-        CommandStrings.sendCommand(new byte[] {6, 22, 27, 7, -1, -59}, delay);
-        CommandStrings.sendCommand(new byte[] {6, 22, 27, 7, -1, -67}, delay);
-        CommandStrings.sendCommand(new byte[] {6, 0, 0, 7, 0, 0}, delay);
+        CommandStrings.sendCommand(new byte[]{6, -1, -38, 7, -1, -8}, delay);
+        CommandStrings.sendCommand(new byte[]{6, -2, -85, 7, -1, -59}, delay);
+        CommandStrings.sendCommand(new byte[]{6, -4, 115, 7, -1, -109}, delay);
+        CommandStrings.sendCommand(new byte[]{6, -7, -16, 7, -1, 113}, delay);
+        CommandStrings.sendCommand(new byte[]{6, -11, -14, 7, -1, 80}, delay);
+        CommandStrings.sendCommand(new byte[]{6, -15, 55, 7, -1, 54}, delay);
+        CommandStrings.sendCommand(new byte[]{6, -19, 19, 7, -1, 29}, delay);
+        CommandStrings.sendCommand(new byte[]{6, -26, -73, 7, -1, 12}, delay);
+        CommandStrings.sendCommand(new byte[]{6, -31, 24, 7, -1, 21}, delay);
+        CommandStrings.sendCommand(new byte[]{6, -36, -87, 7, -1, 21}, delay);
+        CommandStrings.sendCommand(new byte[]{6, -39, -39, 7, -1, 21}, delay);
+        CommandStrings.sendCommand(new byte[]{6, -40, -48, 7, -1, 12}, delay);
+        CommandStrings.sendCommand(new byte[]{6, -41, -19, 7, -1, 4}, delay);
+        CommandStrings.sendCommand(new byte[]{6, -41, 124, 7, -2, -5}, delay);
+        CommandStrings.sendCommand(new byte[]{6, -41, -94, 7, -2, -13}, delay);
+        CommandStrings.sendCommand(new byte[]{6, -39, -114, 7, -2, -13}, delay);
+        CommandStrings.sendCommand(new byte[]{6, -35, -40, 7, -1, 21}, delay);
+        CommandStrings.sendCommand(new byte[]{6, -29, 118, 7, -1, 46}, delay);
+        CommandStrings.sendCommand(new byte[]{6, -22, -113, 7, -1, 63}, delay);
+        CommandStrings.sendCommand(new byte[]{6, -16, 46, 7, -1, 63}, delay);
+        CommandStrings.sendCommand(new byte[]{6, -11, -52, 7, -1, 71}, delay);
+        CommandStrings.sendCommand(new byte[]{6, -6, -121, 7, -1, 105}, delay);
+        CommandStrings.sendCommand(new byte[]{6, -1, 67, 7, -1, -109}, delay);
+        CommandStrings.sendCommand(new byte[]{6, 3, -101, 7, -1, -67}, delay);
+        CommandStrings.sendCommand(new byte[]{6, 9, -32, 7, -1, -17}, delay);
+        CommandStrings.sendCommand(new byte[]{6, 14, -108, 7, -1, -8}, delay);
+        CommandStrings.sendCommand(new byte[]{6, 19, -63, 7, -1, -17}, delay);
+        CommandStrings.sendCommand(new byte[]{6, 21, 122, 7, -1, -34}, delay);
+        CommandStrings.sendCommand(new byte[]{6, 22, 27, 7, -1, -42}, delay);
+        CommandStrings.sendCommand(new byte[]{6, 22, 27, 7, -1, -50}, delay);
+        CommandStrings.sendCommand(new byte[]{6, 22, 27, 7, -1, -59}, delay);
+        CommandStrings.sendCommand(new byte[]{6, 22, 27, 7, -1, -67}, delay);
+        CommandStrings.sendCommand(new byte[]{6, 0, 0, 7, 0, 0}, delay);
     }
 
     private void changeColor(byte[] color) {
@@ -437,31 +438,32 @@ public class RobotControlActivity extends Activity {
     }
 
     private void rollEye(int delay) {
-        CommandStrings.sendCommand(new byte[] {8, 88, 9, 15,   -2}, delay);
-        CommandStrings.sendCommand(new byte[] {8, 88, 9, 15,   -4}, delay);
-        CommandStrings.sendCommand(new byte[] {8, 88, 9, 15,   -8}, delay);
-        CommandStrings.sendCommand(new byte[] {8, 88, 9, 15,  -16}, delay);
-        CommandStrings.sendCommand(new byte[] {8, 88, 9, 15,  -32}, delay);
-        CommandStrings.sendCommand(new byte[] {8, 88, 9, 15,  -64}, delay);
-        CommandStrings.sendCommand(new byte[] {8, 88, 9, 15, -128}, delay);
-        CommandStrings.sendCommand(new byte[] {8, 88, 9, 15,    0}, delay);
-        CommandStrings.sendCommand(new byte[] {8, 88, 9, 14,    0}, delay);
-        CommandStrings.sendCommand(new byte[] {8, 88, 9, 12,    0}, delay);
-        CommandStrings.sendCommand(new byte[] {8, 88, 9,  8,    0}, delay);
-        CommandStrings.sendCommand(new byte[] {8, 88, 9,  0,    0}, delay);
-        CommandStrings.sendCommand(new byte[] {8, 88, 9,  0,    1}, delay);
-        CommandStrings.sendCommand(new byte[] {8, 88, 9,  0,    3}, delay);
-        CommandStrings.sendCommand(new byte[] {8, 88, 9,  0,    7}, delay);
-        CommandStrings.sendCommand(new byte[] {8, 88, 9,  0,   15}, delay);
-        CommandStrings.sendCommand(new byte[] {8, 88, 9,  0,   31}, delay);
-        CommandStrings.sendCommand(new byte[] {8, 88, 9,  0,   63}, delay);
-        CommandStrings.sendCommand(new byte[] {8, 88, 9,  0,  127}, delay);
-        CommandStrings.sendCommand(new byte[] {8, 88, 9,  0,   -1}, delay);
-        CommandStrings.sendCommand(new byte[] {8, 88, 9,  1,   -1}, delay);
-        CommandStrings.sendCommand(new byte[] {8, 88, 9,  3,   -1}, delay);
-        CommandStrings.sendCommand(new byte[] {8, 88, 9,  7,   -1}, delay);
-        CommandStrings.sendCommand(new byte[] {8, 88, 9, 15,   -1}, delay);
+        CommandStrings.sendCommand(new byte[]{8, 88, 9, 15, -2}, delay);
+        CommandStrings.sendCommand(new byte[]{8, 88, 9, 15, -4}, delay);
+        CommandStrings.sendCommand(new byte[]{8, 88, 9, 15, -8}, delay);
+        CommandStrings.sendCommand(new byte[]{8, 88, 9, 15, -16}, delay);
+        CommandStrings.sendCommand(new byte[]{8, 88, 9, 15, -32}, delay);
+        CommandStrings.sendCommand(new byte[]{8, 88, 9, 15, -64}, delay);
+        CommandStrings.sendCommand(new byte[]{8, 88, 9, 15, -128}, delay);
+        CommandStrings.sendCommand(new byte[]{8, 88, 9, 15, 0}, delay);
+        CommandStrings.sendCommand(new byte[]{8, 88, 9, 14, 0}, delay);
+        CommandStrings.sendCommand(new byte[]{8, 88, 9, 12, 0}, delay);
+        CommandStrings.sendCommand(new byte[]{8, 88, 9, 8, 0}, delay);
+        CommandStrings.sendCommand(new byte[]{8, 88, 9, 0, 0}, delay);
+        CommandStrings.sendCommand(new byte[]{8, 88, 9, 0, 1}, delay);
+        CommandStrings.sendCommand(new byte[]{8, 88, 9, 0, 3}, delay);
+        CommandStrings.sendCommand(new byte[]{8, 88, 9, 0, 7}, delay);
+        CommandStrings.sendCommand(new byte[]{8, 88, 9, 0, 15}, delay);
+        CommandStrings.sendCommand(new byte[]{8, 88, 9, 0, 31}, delay);
+        CommandStrings.sendCommand(new byte[]{8, 88, 9, 0, 63}, delay);
+        CommandStrings.sendCommand(new byte[]{8, 88, 9, 0, 127}, delay);
+        CommandStrings.sendCommand(new byte[]{8, 88, 9, 0, -1}, delay);
+        CommandStrings.sendCommand(new byte[]{8, 88, 9, 1, -1}, delay);
+        CommandStrings.sendCommand(new byte[]{8, 88, 9, 3, -1}, delay);
+        CommandStrings.sendCommand(new byte[]{8, 88, 9, 7, -1}, delay);
+        CommandStrings.sendCommand(new byte[]{8, 88, 9, 15, -1}, delay);
     }
+
 
 }
 

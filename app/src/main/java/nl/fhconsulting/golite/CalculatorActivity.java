@@ -29,6 +29,10 @@ import java.util.Random;
 
 public class CalculatorActivity extends Activity {
     private Button againButton;
+    Button level1;
+    Button level2;
+    Button level3;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
 
@@ -36,13 +40,13 @@ public class CalculatorActivity extends Activity {
         setContentView(R.layout.calculator);
         againButton = (Button)findViewById(R.id.againButton);
         againButton.setVisibility(View.INVISIBLE);
+        level1 = (Button)findViewById(R.id.level1);
+        level2 = (Button)findViewById(R.id.level2);
+        level3 = (Button)findViewById(R.id.level3);
 
         final Intent intent = getIntent();
         int level = intent.getIntExtra("level", 1);
         setUp(level);
-        Button level1 = (Button)findViewById(R.id.level1);
-        Button level2 = (Button)findViewById(R.id.level2);
-        Button level3 = (Button)findViewById(R.id.level3);
         level1.setOnClickListener((new View.OnClickListener() {
             public void onClick(View v) {
                 intent.putExtra("level", 1);
@@ -75,15 +79,27 @@ public class CalculatorActivity extends Activity {
         switch (level) {
             case 1:
                 factor=10;
+                level1.setBackground(getResources().getDrawable(R.drawable.roundedbutton_green) );
+                level2.setBackground(getResources().getDrawable(R.drawable.roundedbutton_red) );
+                level3.setBackground(getResources().getDrawable(R.drawable.roundedbutton_red) );
                 break;
             case 2:
                 factor=100;
+                level1.setBackground(getResources().getDrawable(R.drawable.roundedbutton_red) );
+                level2.setBackground(getResources().getDrawable(R.drawable.roundedbutton_green) );
+                level3.setBackground(getResources().getDrawable(R.drawable.roundedbutton_red) );
                 break;
             case 3:
                 factor=500;
+                level1.setBackground(getResources().getDrawable(R.drawable.roundedbutton_red) );
+                level2.setBackground(getResources().getDrawable(R.drawable.roundedbutton_red) );
+                level3.setBackground(getResources().getDrawable(R.drawable.roundedbutton_green) );
                 break;
             default:
                 factor=10;
+                level1.setBackground(getResources().getDrawable(R.drawable.roundedbutton_green) );
+                level2.setBackground(getResources().getDrawable(R.drawable.roundedbutton_red) );
+                level3.setBackground(getResources().getDrawable(R.drawable.roundedbutton_red) );
         }
         final int firstValue  = r.nextInt(factor - 2) + 1;
         final int secondValue = r.nextInt(factor - 2) + 1;
@@ -96,7 +112,7 @@ public class CalculatorActivity extends Activity {
         Button checkCalcButton = (Button)findViewById(R.id.checkCalcButton);
         checkCalcButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-               if ( (firstValue + secondValue) ==  Integer.parseInt(input.getText().toString())) {
+               if ( (!input.getText().toString().equals("")) && (firstValue + secondValue) ==  Integer.parseInt(input.getText().toString())) {
                    CommandStrings.playSound(CommandStrings.soundOhYeah);
                    againButton.setVisibility(View.VISIBLE);
                    againButton.setOnClickListener(new View.OnClickListener() {

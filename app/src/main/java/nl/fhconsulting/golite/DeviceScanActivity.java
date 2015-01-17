@@ -151,13 +151,16 @@ public class DeviceScanActivity extends ListActivity {
     protected void onPause() {
         super.onPause();
         scanLeDevice(false);
+
         mLeDeviceListAdapter.clear();
     }
 
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
         final BluetoothDevice device = mLeDeviceListAdapter.getDevice(position);
-        if (device == null) return;
+        if (device == null) {
+            return;
+        }
         final Intent intent = new Intent(this, RobotControlActivity.class);
         intent.putExtra(RobotControlActivity.EXTRAS_DEVICE_NAME, device.getName());
         intent.putExtra(RobotControlActivity.EXTRAS_DEVICE_ADDRESS, device.getAddress());

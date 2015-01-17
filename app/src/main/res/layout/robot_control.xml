@@ -64,23 +64,40 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal">
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="5dp">
         <Button android:layout_height="wrap_content"
-        android:layout_width="wrap_content" android:id="@+id/moveHeadButton" android:text="MoveHead" android:layout_gravity="center_horizontal">
+        android:layout_width="wrap_content" android:id="@+id/moveHeadButton"
+            android:text="MoveHead" android:layout_gravity="center_horizontal"
+            android:background="@drawable/roundedbutton_blue"
+            android:textColor="@android:color/white"
+            android:layout_marginRight="5dp"
+            android:padding="5dp">
         </Button>
             <Button android:layout_height="wrap_content"
-                android:layout_width="wrap_content" android:id="@+id/goCalcButton" android:text="GoCalc" android:layout_gravity="center_horizontal">
+                android:layout_width="wrap_content" android:id="@+id/goCalcButton"
+                android:text="GoCalc" android:layout_gravity="center_horizontal"
+                android:background="@drawable/roundedbutton_yellow"
+                android:padding="5dp">
             </Button>
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal">
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="5dp">
         <Button android:layout_height="wrap_content"
-            android:layout_width="wrap_content" android:id="@+id/lightShowButton" android:text="LightShow" android:layout_gravity="center_horizontal">
+            android:layout_width="wrap_content" android:id="@+id/lightShowButton"
+            android:text="LightShow" android:layout_gravity="center_horizontal"
+            android:background="@drawable/roundedbutton_green"
+            android:layout_marginRight="5dp"
+            android:padding="5dp">
         </Button>
         <Button android:layout_height="wrap_content"
-            android:layout_width="wrap_content" android:id="@+id/rollEyeButton" android:text="RollEye" android:layout_gravity="center_horizontal">
+            android:layout_width="wrap_content" android:id="@+id/rollEyeButton"
+            android:text="RollEye" android:layout_gravity="center_horizontal"
+            android:background="@drawable/roundedbutton_orange"
+            android:padding="5dp">
         </Button>
         </LinearLayout>
         <LinearLayout

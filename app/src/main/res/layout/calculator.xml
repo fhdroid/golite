@@ -30,17 +30,23 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/level1"
-                android:text="1"/>
+                android:text="1"
+                android:background="@drawable/roundedbutton_green"
+                android:layout_margin="5dp"/>
             <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/level2"
-                    android:text="2"/>
+                    android:text="2"
+                android:background="@drawable/roundedbutton_red"
+                android:layout_margin="5dp"/>
              <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/level3"
-                    android:text="3"/>
+                    android:text="3"
+                 android:background="@drawable/roundedbutton_red"
+                 android:layout_margin="5dp"/>
 
             </LinearLayout>
           <LinearLayout
@@ -83,7 +89,9 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/checkCalcButton"
                 android:text="check"
-                android:layout_gravity="center_horizontal" />
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/roundedbutton_yellow"
+                android:paddingRight="5dp"/>
             </LinearLayout>
           <LinearLayout
               android:layout_width="fill_parent"
@@ -97,7 +105,8 @@
                   android:layout_height="wrap_content"
                   android:id="@+id/againButton"
                   android:text="Try again?"
-                  android:layout_gravity="center_horizontal"/>
+                  android:layout_gravity="center_horizontal"
+                  android:background="@drawable/roundedbutton_green"/>
           </LinearLayout>
         </LinearLayout>
     </ScrollView>

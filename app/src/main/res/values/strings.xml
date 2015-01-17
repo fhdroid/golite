@@ -21,7 +21,7 @@
     <string name="no_data">No data</string>
     <string name="connected">Connected</string>
     <string name="disconnected">Disconnected</string>
-    <string name="title_devices">GoLite BLE Device Scan</string>
+    <string name="title_devices">GoLite Device Scan</string>
     <string name="error_bluetooth_not_supported">Bluetooth not supported.</string>
 
     <string name="unknown_device">Unknown device</string>
@@ -33,4 +33,6 @@
     <string name="menu_disconnect">Disconnect</string>
     <string name="menu_scan">Scan</string>
     <string name="menu_stop">Stop</string>
+
+    <string name="no_robots_found">Sorry, no robots found! Make sure Dash and Dot are powered on and within range.</string>
 </resources>
