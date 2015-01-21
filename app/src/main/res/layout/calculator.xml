@@ -52,7 +52,7 @@
           <LinearLayout
               android:layout_width="wrap_content"
               android:layout_height="wrap_content" android:orientation="horizontal"
-              android:padding="5dp"
+              android:layout_margin="10dp"
               android:layout_gravity="center_horizontal" >
             <TextView
               android:layout_width="wrap_content"
@@ -73,12 +73,12 @@
                   android:layout_marginRight="5dp"/>
               <EditText
                   android:id="@+id/inputField"
-                  android:layout_width="100dp"
+                  android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
-                  android:textSize="30sp" android:layout_marginRight="5dp"
+                  android:textSize="30sp"
                   android:inputType="phone"
                   android:digits="1234567890"
-                  android:maxLength="4"/>
+                  android:maxLength="2"/>
           </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
